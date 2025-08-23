@@ -11,8 +11,8 @@ import Donate from './pages/Donate';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Login from './pages/Login';        // ✅ fixed
-import Signup from './pages/signup';      // ✅ fixed
-import AdminLogin from './pages/adminlogin'; // ✅ fixed
+import Signup from './pages/Signup';      // ✅ fixed
+import AdminLogin from './pages/AdminLogin'; // ✅ fixed
 
 // Admin Pages
 import AdminDashboard from './features/admin/AdminDashboard';
