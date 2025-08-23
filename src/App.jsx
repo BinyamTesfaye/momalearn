@@ -10,7 +10,7 @@ import CampaignDetails from './pages/CampaignDetails';
 import Donate from './pages/Donate';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Login from './pages/login';        // ✅ fixed
+import Login from './pages/Login';        // ✅ fixed
 import Signup from './pages/signup';      // ✅ fixed
 import AdminLogin from './pages/adminlogin'; // ✅ fixed
 
