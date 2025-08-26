@@ -1,100 +1,124 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 // Public Pages
 import Home from './pages/Home';
-import Campaigns from './pages/Campaigns';
-import CampaignDetails from './pages/CampaignDetails';
-import Donate from './pages/Donate';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Login from './pages/Login';        // ✅ fixed
-import Signup from './pages/Signup';      // ✅ fixed
-import AdminLogin from './pages/AdminLogin'; // ✅ fixed
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import About from './pages/About.jsx';
+import Contact from './pages/Contact.jsx';
+
+// Courses (public & detail)
+import CourseList from './pages/courses/CourseList';
+import CoursePage from './pages/courses/CoursePage';
+import LessonPlayer from './pages/courses/LessonPlayer';
+
+// Student area
+import StudentLayout from './layouts/StudentLayout';
+import StudentDashboard from './features/student/StudentDashboard';
+import MyCourses from './features/student/MyCourses';
+import EnrollmentPage from './features/student/EnrollmentPage';
+import Profile from './features/student/Profile';
+
+// Instructor area
+import InstructorLayout from './layouts/InstructorLayout';
+import InstructorDashboard from './features/instructor/InstructorDashboard';
+import CreateCourse from './features/instructor/CreateCourse';
+import EditCourse from './features/instructor/EditCourse';
+import ManageCourseLessons from './features/instructor/ManageCourseLessons';
 
 // Admin Pages
-import AdminDashboard from './features/admin/AdminDashboard';
 import AdminLayout from './layouts/AdminLayout';
+import AdminDashboard from './features/admin/AdminDashboard';
 import ManageUsers from './features/admin/ManageUsers';
+import ManageCourses from './features/admin/ManageCourses';
 import ManageCampaigns from './features/admin/ManageCampaigns';
-import ApproveWithdrawals from './features/admin/ApproveWithdrawals';
-import Analytics from './features/admin/Analytics';
-import FraudDetection from './features/admin/FraudDetection';
-import ContentModeration from './features/admin/ContentModeration';
-import SystemSettings from './features/admin/SystemSettings';
-
-// UI Components
-import ParticlesBackground from './components/ui/ParticlesBackground';
-import GradientOverlay from './components/ui/GradientOverlay';
-import ErrorBoundary from './components/ui/ErrorBoundary';
 
 export default function App() {
+  const { user } = useAuth();
+
   useEffect(() => {
-    // Add futuristic cursor effect
-    try {
-      const cursor = document.createElement('div');
-      cursor.className = 'futuristic-cursor';
-      document.body.appendChild(cursor);
-      
-      const moveCursor = (e) => {
-        cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-      };
-      
-      document.addEventListener('mousemove', moveCursor);
-      
-      return () => {
-        document.removeEventListener('mousemove', moveCursor);
-        if (document.body.contains(cursor)) {
-          document.body.removeChild(cursor);
-        }
-      };
-    } catch (error) {
-      console.error('Cursor effect error:', error);
-    }
+    // Futuristic cursor effect
+    const cursor = document.createElement('div');
+    cursor.className = 'futuristic-cursor';
+    document.body.appendChild(cursor);
+
+    const moveCursor = (e) => {
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+    };
+
+    document.addEventListener('mousemove', moveCursor);
+    return () => {
+      document.removeEventListener('mousemove', moveCursor);
+      document.body.removeChild(cursor);
+    };
   }, []);
 
   return (
-    <ErrorBoundary>
-      <div className="futuristic-theme min-h-screen flex flex-col">
-        <ParticlesBackground />
-        <GradientOverlay />
-        
-        <Navbar />
-        
-        <main className="flex-grow">
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/campaigns" element={<Campaigns />} />
-            <Route path="/campaigns/:id" element={<CampaignDetails />} />
-            <Route path="/donate" element={<Donate />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/adminlogin" element={<AdminLogin />} />
-            
-            {/* Admin Routes */}
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route index element={<AdminDashboard />} />
-              <Route path="users" element={<ManageUsers />} />
-              <Route path="campaigns" element={<ManageCampaigns />} />
-              <Route path="withdrawals" element={<ApproveWithdrawals />} />
-              <Route path="analytics" element={<Analytics />} />
-              <Route path="fraud-detection" element={<FraudDetection />} />
-              <Route path="content-moderation" element={<ContentModeration />} />
-              <Route path="settings" element={<SystemSettings />} />
-            </Route>
-            
-            {/* Fallback */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </main>
-        
-        <Footer />
-      </div>
-    </ErrorBoundary>
+    <div className="futuristic-theme min-h-screen flex flex-col">
+      <Navbar />
+
+      <main className="flex-grow">
+        <Routes>
+          {/* Public routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/courses" element={<CourseList />} />
+          <Route path="/courses/:courseId" element={<CoursePage />} />
+          <Route path="/courses/:courseId/lessons/:lessonId" element={<LessonPlayer />} />
+
+          <Route path="/login" element={!user ? <Login /> : <Navigate to="/" replace />} />
+          <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/" replace />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+
+          {/* Student routes (protected for role: student) */}
+          <Route path="/student" element={
+            <ProtectedRoute role="student">
+              <StudentLayout />
+            </ProtectedRoute>
+          }>
+            <Route index element={<StudentDashboard />} />
+            <Route path="my-courses" element={<MyCourses />} />
+            <Route path="enrollments" element={<EnrollmentPage />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
+
+          {/* Instructor routes (protected for role: instructor) */}
+          <Route path="/instructor" element={
+            <ProtectedRoute role="instructor">
+              <InstructorLayout />
+            </ProtectedRoute>
+          }>
+            <Route index element={<InstructorDashboard />} />
+            <Route path="courses/new" element={<CreateCourse />} />
+            <Route path="courses/:courseId/edit" element={<EditCourse />} />
+            <Route path="courses/:courseId/lessons" element={<ManageCourseLessons />} />
+                        <Route path="profile" element={<Profile />} />
+
+          </Route>
+
+          {/* Admin routes (protected for role: admin) */}
+          <Route path="/admin" element={
+            <ProtectedRoute role="admin">
+              <AdminLayout />
+            </ProtectedRoute>
+          }>
+            <Route index element={<AdminDashboard />} />
+            <Route path="users" element={<ManageUsers />} />
+            <Route path="courses" element={<ManageCourses />} />
+            <Route path="campaigns" element={<ManageCampaigns />} />
+          </Route>
+
+          {/* Catch-all */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

@@ -1,71 +1,111 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Users, Heart, Cpu } from "lucide-react";
 
 export default function About() {
   return (
-    <div className="container mx-auto px-4 py-16 min-h-screen">
-      <div className="glass p-8 rounded-3xl max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          About Erteban
-        </h1>
-        
-        <div className="space-y-6">
-          <div className="card-futuristic">
-            <div className="card-content">
-              <h2 className="text-2xl font-bold mb-4 text-primary">Our Mission</h2>
-              <p className="text-gray-300 leading-relaxed">
-                Erteban was founded with a singular vision: to create a transparent bridge between compassionate donors 
-                and communities in need. Using blockchain technology and AI-powered verification systems, we ensure that 
-                every donation creates maximum impact with zero waste.
-              </p>
-            </div>
+    <div className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white min-h-screen">
+      {/* Background overlay */}
+      <div className="absolute inset-0 opacity-10 bg-[url('/grid.svg')] bg-center"></div>
+
+      <div className="container mx-auto px-4 pt-24 pb-16 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="glass p-10 rounded-3xl max-w-5xl mx-auto shadow-2xl"
+        >
+          <h2 className="text-5xl font-extrabold mb-12 text-center text-white-100  bg-clip-text">
+            About MOMA
+          </h2>
+
+          <div className="grid gap-10 md:gap-14">
+            {/* Mission */}
+            <motion.div
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -60 }}
+              transition={{ duration: 0.6 }}
+              className="card-futuristic p-6 rounded-2xl"
+            >
+              <div className="flex items-start gap-5">
+                <Heart className="w-10 h-10 text-yellow-400 shrink-0" />
+                <div>
+                  <h3 className="text-2xl font-bold mb-3 text-yellow-400">
+                    Our Mission
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    MOMA E-Learning was founded to make education accessible,
+                    engaging, and empowering for learners everywhere. Our goal
+                    is to break barriers by delivering high-quality courses that
+                    inspire lifelong learning and open new opportunities for
+                    students worldwide.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* How we work */}
+            <motion.div
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: 60 }}
+              transition={{ duration: 0.6 }}
+              className="card-futuristic p-6 rounded-2xl"
+            >
+              <div className="flex items-start gap-5">
+                <Cpu className="w-10 h-10 text-orange-400 shrink-0" />
+                <div>
+                  <h3 className="text-2xl font-bold mb-3 text-orange-400">
+                    How We Work
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    We combine modern technology with innovative teaching
+                    methods to create a smooth and effective online learning
+                    experience:
+                  </p>
+                  <ul className="mt-6 space-y-4">
+                    {[
+                      "Interactive video lessons with real-world examples",
+                      "Personalized learning paths for every student",
+                      "Accessible anytime, anywhere on any device",
+                      "Progress tracking and instant feedback",
+                    ].map((step, i) => (
+                      <li key={i} className="flex items-start">
+                        <div className="bg-yellow-500/90 w-7 h-7 rounded-full flex items-center justify-center mr-3 text-xs font-bold">
+                          {i + 1}
+                        </div>
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Team */}
+            <motion.div
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 60 }}
+              transition={{ duration: 0.6 }}
+              className="card-futuristic p-6 rounded-2xl"
+            >
+              <div className="flex items-start gap-5">
+                <Users className="w-10 h-10 text-pink-400 shrink-0" />
+                <div>
+                  <h3 className="text-2xl font-bold mb-3 text-pink-400">
+                    Our Team
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    The MOMA team is made up of educators, technologists, and
+                    creative minds who believe that knowledge should be
+                    unlimited. With expertise in online pedagogy, curriculum
+                    design, and digital innovation, we are dedicated to helping
+                    learners grow and succeed.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
-          
-          <div className="card-futuristic">
-            <div className="card-content">
-              <h2 className="text-2xl font-bold mb-4 text-secondary">How We Work</h2>
-              <p className="text-gray-300 leading-relaxed">
-                Our platform combines cutting-edge technology with humanitarian principles to deliver aid efficiently:
-              </p>
-              <ul className="mt-4 space-y-3">
-                <li className="flex items-start">
-                  <div className="bg-primary w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-1">
-                    <span className="text-xs">1</span>
-                  </div>
-                  <span>AI verifies campaign authenticity</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-primary w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-1">
-                    <span className="text-xs">2</span>
-                  </div>
-                  <span>Blockchain tracks every dollar</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-primary w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-1">
-                    <span className="text-xs">3</span>
-                  </div>
-                  <span>Smart contracts automate distribution</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-primary w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-1">
-                    <span className="text-xs">4</span>
-                  </div>
-                  <span>Real-time impact reporting</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="card-futuristic">
-            <div className="card-content">
-              <h2 className="text-2xl font-bold mb-4 text-accent">Our Team</h2>
-              <p className="text-gray-300 leading-relaxed">
-                We're a diverse team of technologists, humanitarian workers, and financial experts united by our 
-                commitment to creating a more equitable world. With decades of combined experience in crisis response 
-                and technology innovation, we've built a platform that redefines charitable giving.
-              </p>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

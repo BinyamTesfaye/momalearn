@@ -1,3 +1,30 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 @import "tailwindcss/theme"; 
+
+/* Add to your global CSS */
+.futuristic-cursor {
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(79, 70, 229, 0.5);
+  box-shadow: 0 0 10px rgba(79, 70, 229, 0.5),
+              0 0 20px rgba(79, 70, 229, 0.3),
+              0 0 30px rgba(79, 70, 229, 0.2);
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

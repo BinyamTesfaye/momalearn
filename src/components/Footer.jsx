@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 // Import your logo image
-import logo from '../assets/erteban-logo.jpg';
+import logo from '../assets/momalogo.png';
 
 export default function Footer() {
   return (
@@ -18,32 +19,56 @@ export default function Footer() {
                 alt="Erteban Logo" 
                 className="h-12 w-auto mr-3" 
               />
-              <span className="text-2xl font-bold text-white">Erteban</span>
+              <span className="text-2xl font-bold text-white">Moma</span>
             </div>
             <p className="text-gray-400 max-w-xs">
               We are here to help you to connect your heart to the poor
             </p>
-            <div className="flex space-x-4 pt-2">
-              {['facebook', 'twitter', 'instagram', 'linkedin'].map((social) => (
-                <a 
-                  key={social}
-                  href={`https://${social}.com/erteban`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-                  aria-label={`Follow us on ${social}`}
-                >
-                  <div className="w-5 h-5 bg-gray-400 rounded-full"></div>
-                </a>
-              ))}
-            </div>
+           <div>
+                <h4 className="font-bold text-lg mb-4 text-accent">Follow Us</h4>
+               <div className="flex space-x-4">
+  <a
+    href="https://facebook.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+  >
+    <Facebook className="w-6 h-6 text-white" />
+  </a>
+  <a
+    href="https://twitter.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+  >
+    <Twitter className="w-6 h-6 text-white" />
+  </a>
+  <a
+    href="https://instagram.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+  >
+    <Instagram className="w-6 h-6 text-white" />
+  </a>
+  <a
+    href="https://linkedin.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+  >
+    <Linkedin className="w-6 h-6 text-white" />
+  </a>
+</div>
+              </div>
           </div>
           
           {/* Column 2: About */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold mb-4">About</h3>
             <p className="text-gray-400 max-w-xs">
-              Erteban is a charity organization that collects donations and distributes them to poor people.
+                          Moma empowers learners with practical courses, expert guidance, and flexible learning to unlock opportunities and succeed.
+
             </p>
           </div>
           
