@@ -34,7 +34,7 @@ if (loading) return <div className="p-6">Loading...</div>;
 
 return (
 <form onSubmit={save} className="space-y-3">
-<h1 className="text-2xl font-semibold">Edit Course</h1>
+<h2 className="text-2xl font-semibold">Edit Course</h2>
 <input value={form.title} onChange={e => setForm({ ...form, title: e.target.value })} className="w-full p-2 border rounded" />
 <textarea value={form.description} onChange={e => setForm({ ...form, description: e.target.value })} className="w-full p-2 border rounded" />
 <input value={form.category} onChange={e => setForm({ ...form, category: e.target.value })} className="w-full p-2 border rounded" />

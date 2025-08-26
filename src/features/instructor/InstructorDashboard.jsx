@@ -84,7 +84,7 @@ export default function InstructorDashboard() {
     <div className="pt-20 px-6 max-w-6xl mx-auto">
       <header className="flex items-start justify-between mb-6">
         <div>
-          <h1 className="text-3xl font-extrabold">Instructor Dashboard</h1>
+          <h2 className="text-3xl font-extrabold">Instructor Dashboard</h2>
           <p className="mt-1 text-gray-500">Manage your courses, track students, and publish updates.</p>
         </div>
         <div className="flex items-center gap-3">

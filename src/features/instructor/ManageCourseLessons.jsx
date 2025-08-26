@@ -189,7 +189,7 @@ async function addLesson(e) {
 
   return (
     <div className="pt-10 px-10">
-      <h1 className="text-2xl font-semibold">Manage Lessons</h1>
+      <h2 className="text-2xl font-semibold">Manage Lessons</h2>
 
       {/* Add Lesson Form */}
       <form onSubmit={addLesson} className="mt-4 space-y-4 max-w-2xl">
