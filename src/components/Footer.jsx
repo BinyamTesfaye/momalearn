@@ -27,39 +27,39 @@ export default function Footer() {
            <div>
                 <h4 className="font-bold text-lg mb-4 text-accent">Follow Us</h4>
                <div className="flex space-x-4">
-  <a
-    href="https://facebook.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
-  >
-    <Facebook className="w-6 h-6 text-white" />
-  </a>
-  <a
-    href="https://twitter.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
-  >
-    <Twitter className="w-6 h-6 text-white" />
-  </a>
-  <a
-    href="https://instagram.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
-  >
-    <Instagram className="w-6 h-6 text-white" />
-  </a>
-  <a
-    href="https://linkedin.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
-  >
-    <Linkedin className="w-6 h-6 text-white" />
-  </a>
-</div>
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+                  >
+                    <Facebook className="w-6 h-6 text-white" />
+                  </a>
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+                  >
+                    <Twitter className="w-6 h-6 text-white" />
+                  </a>
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+                  >
+                    <Instagram className="w-6 h-6 text-white" />
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 hover:bg-primary w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+                  >
+                    <Linkedin className="w-6 h-6 text-white" />
+                  </a>
+                </div>
               </div>
           </div>
           

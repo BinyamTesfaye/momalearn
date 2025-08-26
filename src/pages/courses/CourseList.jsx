@@ -1,10 +1,25 @@
 // src/pages/courses/CourseList.jsx
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCourses } from '../../hooks/useCourses';
+import React, { useState } from 'react';
+
+
+const CATEGORIES = [
+  'Web Development',
+  'Data Science',
+  'Mobile Development',
+  'Design',
+  'Marketing',
+  'Business',
+  'DevOps',
+  'Other',
+  // add 'Programming' here if you still want it:
+  // 'Programming',
+];
 
 export default function CourseList() {
-  const { courses, loading, page, total, nextPage, prevPage, setQuery, setCategory } = useCourses({ perPage: 9 });
+  const { courses, loading, page, total, nextPage, prevPage, setQuery} = useCourses({ perPage: 9 });
+  const [category, setCategory] = useState('');
 
   return (
     <div className="p-30">
@@ -13,11 +28,18 @@ export default function CourseList() {
           <h2 className="text-2xl font-bold">Courses</h2>
           <div className="flex gap-2">
             <input onChange={e => setQuery(e.target.value)} placeholder="Search courses..." className="p-2 border rounded" />
-            <select onChange={e => setCategory(e.target.value)} className="p-2 border rounded">
-              <option value="">All categories</option>
-              <option value="Programming">Programming</option>
-              <option value="Design">Design</option>
-            </select>
+             <select
+      value={category}
+      onChange={e => setCategory(e.target.value)}
+      className="p-2 border rounded"
+    >
+      <option value="">All categories</option>
+      {CATEGORIES.map(cat => (
+        <option key={cat} value={cat}>
+          {cat}
+        </option>
+      ))}
+    </select>
           </div>
         </header>
 
