@@ -116,7 +116,7 @@ const submitEnrollment = async (e) => {
             Welcome to MOMA Continuing Education Training Center
           </h2>
           
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+          <p className="text-xl md:text-2xl font-bold text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
               At MOMA, we specialize in empowering health professionals with the knowledge, skills, and confidence needed to thrive in a rapidly evolving healthcare landscape. 
           </p>
           

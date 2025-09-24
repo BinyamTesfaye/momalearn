@@ -13,17 +13,17 @@ export default function Navbar() {
     <nav className="bg-white shadow-md fixed top-0 w-full z-50">
       <div className="container mx-auto flex items-center justify-between px-4 md:px-6 py-3">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <img src={logo} alt="Moma Logo" className="h-10 w-auto" />
+        <Link to="/" className="flex items-center space-x-2 space-y-4">
+          <img src={logo} alt="Moma Logo" className="h-15 w-auto" />
           <span className="text-xl md:text-2xl font-bold text-blue-900">MOMA</span>
         </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-gray-700 hover:text-blue-600 transition-colors">Home</Link>
-          <Link to="/courses" className="text-gray-700 hover:text-blue-600 transition-colors">Courses</Link>
-          <Link to="/about" className="text-gray-700 hover:text-blue-600 transition-colors">About</Link>
-          <Link to="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</Link>
+          <Link to="/" className="text-gray-700 text-xl hover:text-blue-600 transition-colors">Home</Link>
+          <Link to="/courses" className="text-gray-700 text-xl hover:text-blue-600 transition-colors">Courses</Link>
+          <Link to="/about" className="text-gray-700 text-xl hover:text-blue-600 transition-colors">About</Link>
+          <Link to="/contact" className="text-gray-700 text-xl hover:text-blue-600 transition-colors">Contact</Link>
         </div>
 
         {/* User Actions */}
