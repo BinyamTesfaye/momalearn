@@ -112,8 +112,8 @@ const submitEnrollment = async (e) => {
 
         <div className="relative z-10 max-w-7xl mx-auto text-center">
              
-          <h2 className="text-5xl md:text-7xl font-bold mb-0  h-30 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
-            Your Future in Health Begins Here.
+          <h2 className="text-5xl md:text-7xl font-bold mb-0 pb-50  h-30 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+            Welcome to MOMA Continuing Education Training Center
           </h2>
           
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
@@ -147,7 +147,7 @@ const submitEnrollment = async (e) => {
               <div className="text-gray-300 uppercase tracking-wider">Courses</div>
             </div>
             <div className="p-6">
-              <div className="text-5xl font-bold text-purple-400 mb-3">4K+</div>
+              <div className="text-5xl font-bold text-purple-400 mb-3">0</div>
               <div className="text-gray-300 uppercase tracking-wider">Students</div>
             </div>
             <div className="p-6">
